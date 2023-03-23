@@ -1,29 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import { RxGithubLogo } from "react-icons/rx";
 import PropTypes from "prop-types";
 
-export class Navbar extends Component {
-  static defaultProps = {
-    title: "Github Search",
-    icon: <RxGithubLogo />,
-  };
+const Navbar = ({ icon, title }) => {
+  return (
+    <nav className="navbar bg-primary">
+      <h1>
+        <a href="/">
+          {icon} {title}
+        </a>
+      </h1>
+    </nav>
+  );
+};
 
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    icon: PropTypes.element.isRequired,
-  };
+Navbar.defaultProps = {
+  title: "Github Search",
+  icon: <RxGithubLogo />,
+};
 
-  render() {
-    return (
-      <nav className="navbar bg-primary">
-        <h1>
-          <a href="/">
-            {this.props.icon} {this.props.title}
-          </a>
-        </h1>
-      </nav>
-    );
-  }
-}
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+};
 
 export default Navbar;
