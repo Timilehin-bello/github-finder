@@ -6,10 +6,10 @@ import PropTypes from "prop-types";
 const Users = ({ users, loading }) => {
   return (
     <div style={userStyling}>
-      {loading ? (
-        <Loader />
-      ) : (
+      {!loading ? (
         users.map((user) => <UsersCard key={user.id} user={user} />)
+      ) : (
+        <Loader />
       )}
     </div>
   );
