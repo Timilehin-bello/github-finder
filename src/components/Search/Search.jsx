@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Search extends Component {
   state = { text: "" };
+
+  static propTypes = {
+    searchUsers: PropTypes.func.isRequired,
+  };
 
   onSearchChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
